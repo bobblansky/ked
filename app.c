@@ -94,7 +94,8 @@ static void save_response_cb(GtkNativeDialog *dialog, gint response_id, gpointer
 
       if(g_file_load_contents(file, NULL, &contents, NULL, NULL, &error)) {
           create_window(app, contents);
-          g_free(contents)save      }
+          g_free(contents);
+      }
       else {
           message_dialog = gtk_message_dialog_new(
 			    NULL,
@@ -147,8 +148,10 @@ static void open_response_cb(GtkNativeDialog *dialog, gint response_id, gpointer
     g_object_unref(native);
 }
 
-static void action_save(GSimpleAction *action, GVariant *parameter, gpointer user_data) {
-    GAppllication *aative *native;
+//TODO: Fix this 
+static void activate_save(GSimpleAction *action, GVariant *parameter, gpointer user_data) {
+    GApplication *app;
+    GtkFileChooserNative *native;
 
     native = gtk_file_chooser_native_new(
     	"Open File",
@@ -163,7 +166,7 @@ static void action_save(GSimpleAction *action, GVariant *parameter, gpointer use
 		    G_CALLBACK(open_response_cb),
 		    native);
 
-    gtk_native_dialopp = user_data;
+//    gtk_native_dialog_run = user_data;
 
 
 }
@@ -491,7 +494,7 @@ int main(int argc, char *argv[]) {
   GtkApplication *app;
 
   app = GTK_APPLICATION(g_object_new(application_get_type(),
-                                       "application-id", "org.gtk.demo2",
+                                       "application-id", "Kyrk Editor",
                                        "flags", G_APPLICATION_HANDLES_OPEN,
                                        NULL));
 
