@@ -1,5 +1,5 @@
 # kEd
-kEd is a light fontprint single buffer editor.
+kEd is a light footprint single buffer editor.
 
 To install clone repo and run
 
